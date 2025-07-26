@@ -2,20 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ralph DeJesus</title>
+  <meta name="description" content="Ralph DeJesus - IT Leadership, Consulting, Notary Services" />
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+
   <style>
     body {
       margin: 0;
       background: #000;
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
+      scroll-padding-top: 70px; /* offset for navbar */
+      color: #eee;
     }
+
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #003366dd;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 1000;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    #navbar a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #navbar a:hover {
+      text-decoration: underline;
+    }
+
     img.section {
       width: 100%;
       max-width: 100%;
       display: block;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
+
+    img.section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #contact-bar {
+      background: #003366cc;
+      color: white;
+      padding: 1rem;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    #contact-bar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    #contact-bar a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       padding: 2rem;
       font-size: 0.9rem;
@@ -25,17 +82,56 @@
 </head>
 <body>
 
-  <img class="section" src="assets/images/Home.png" alt="Home" />
-  <img class="section" src="assets/images/About.png" alt="About" />
-  <img class="section" src="assets/images/Freelance.png" alt="Freelance" />
-  <img class="section" src="assets/images/Portfolio.png" alt="Portfolio" />
-  <img class="section" src="assets/images/Contact.png" alt="Contact" />
+  <nav id="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#freelance">Freelance</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <img id="home" class="section" src="assets/images/Home.png" alt="Home" />
+  <img id="about" class="section" src="assets/images/About.png" alt="About" />
+  <img id="freelance" class="section" src="assets/images/Freelance.png" alt="Freelance" />
+  <img id="portfolio" class="section" src="assets/images/Portfolio.png" alt="Portfolio" />
+  <img id="contact" class="section" src="assets/images/Contact.png" alt="Contact" />
   <img class="section" src="assets/images/6.png" alt="Extra Section" />
   <img class="section" src="assets/images/Background.png" alt="Background" />
+
+  <div id="contact-bar">
+    <a href="mailto:ralph@example.com">📧 Email Me</a> |
+    <a href="tel:+1234567890">📞 Call Me</a>
+  </div>
 
   <footer>
     &copy; 2025 Ralph DeJesus
   </footer>
+
+  <script>
+    // Smooth scrolling for nav links
+    document.querySelectorAll('#navbar a').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Scroll fade-in effect
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 
 </body>
 </html>
