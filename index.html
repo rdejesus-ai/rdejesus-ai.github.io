@@ -47,18 +47,47 @@
       background: linear-gradient(rgba(10, 10, 35, 0.7), rgba(10, 10, 35, 0.7)), url('assets/images/scene.gif') center center / cover no-repeat;
       color: var(--text-light);
       text-align: center;
-      padding: 6rem 2rem;
-      min-height: 400px;
+      padding: 3rem 2rem;
+      min-height: 500px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 1.5rem;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      border: 4px solid var(--accent);
+      animation: fadeInScale 0.8s ease-out;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     header h1 {
       font-family: 'Anton', sans-serif;
       font-size: clamp(2rem, 8vw, 3.5rem);
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       letter-spacing: 1px;
     }
 
@@ -70,7 +99,7 @@
 
     .cta-button {
       display: inline-block;
-      margin-top: 2rem;
+      margin-top: 1rem;
       padding: 0.75rem 2rem;
       background: var(--accent);
       color: var(--text-light);
@@ -293,6 +322,25 @@
       display: block;
     }
 
+    .cta-resume {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.25rem;
+      background: transparent;
+      color: var(--accent);
+      text-decoration: none;
+      border: 2px solid var(--accent);
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .cta-resume:hover {
+      background: var(--accent);
+      color: var(--text-light);
+    }
+
     .gif-container {
       display: flex;
       justify-content: center;
@@ -308,8 +356,13 @@
 
     @media (max-width: 768px) {
       header {
-        padding: 3rem 1.5rem;
-        min-height: 300px;
+        padding: 2rem 1.5rem;
+        min-height: 400px;
+      }
+
+      .profile-image {
+        width: 140px;
+        height: 140px;
       }
 
       section {
@@ -329,9 +382,14 @@
 <body>
 
   <header>
-    <h1>Ralph DeJesus</h1>
-    <p>IT Leadership | Consultant | Notary Public</p>
-    <a href="#contact" class="cta-button">Get In Touch</a>
+    <div class="profile-container">
+      <img src="assets/images/ralph-profile.png" alt="Ralph DeJesus - IT Leadership Professional" class="profile-image" loading="eager" />
+      <div>
+        <h1>Ralph DeJesus</h1>
+        <p>IT Leadership | Consultant | Notary Public</p>
+        <a href="#contact" class="cta-button">Get In Touch</a>
+      </div>
+    </div>
   </header>
 
   <nav>
@@ -340,12 +398,13 @@
     <a href="#portfolio">Portfolio</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
+    <a href="resume.html">Resume</a>
   </nav>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I'm Ralph DeJesus, an accomplished technology leader with a track record of aligning IT solutions to business outcomes. Over the past 25 years, I've led strategic digital transformations, managed complex infrastructure initiatives, and modernized legacy systems for Fortune 500 companies and nonprofits alike.</p>
-    <p>I specialize in designing scalable solutions, managing cross-functional teams, and solving complex problems with a hands-on approach. Whether building systems from the ground up or modernizing existing infrastructure, I combine strategic vision with practical execution to deliver results that drive business value. My expertise spans cloud architecture, enterprise security, and organizational change management.</p>
+    <p>I'm Ralph DeJesus, an accomplished technology leader with a track record of aligning IT solutions to business outcomes. Over the past 25 years, I've led strategic digital transformations, managed complex cloud migrations, and designed scalable infrastructure solutions for organizations ranging from startups to Fortune 500 equivalents.</p>
+    <p>I specialize in designing scalable solutions, managing cross-functional teams, and solving complex problems with a hands-on approach. Whether building systems from the ground up or modernizing legacy infrastructure, I focus on delivering measurable business impact while maintaining operational excellence.</p>
   </section>
 
   <section id="services" class="alt-section">
@@ -387,15 +446,15 @@
     <h2>Portfolio</h2>
     <div class="portfolio-item">
       <strong>University of Kentucky – KGS (Kentucky Geological Survey)</strong>
-      <p>Rebuilt IT infrastructure and digital asset management systems from the ground up. Implemented issue tracking and project management workflows. Set up new Ubuntu-based web servers for public research tools, ensuring 99.9% uptime and enabling access to critical geological datasets for researchers worldwide.</p>
+      <p>Rebuilt IT infrastructure and digital asset management systems from the ground up. Implemented issue tracking and project management workflows. Set up new Ubuntu-based web servers for public scientific data distribution and modernized legacy systems while maintaining research continuity.</p>
     </div>
     <div class="portfolio-item">
       <strong>NY Academy of Sciences</strong>
-      <p>Led comprehensive tech stack migration to cloud infrastructure. Redesigned and modernized NYAS.org, built out hybrid office infrastructure supporting remote and onsite operations, and ensured operational continuity through COVID-19 pandemic. Implemented new collaboration tools and security protocols serving 50,000+ members.</p>
+      <p>Led comprehensive tech stack migration to cloud infrastructure. Redesigned and modernized NYAS.org, built out hybrid office infrastructure supporting remote and onsite operations, and ensured 99.5% uptime during pandemic transition with 200+ distributed team members.</p>
     </div>
     <div class="portfolio-item">
       <strong>Freelance Consulting</strong>
-      <p>Led successful cloud migrations for construction firms, reducing infrastructure costs by 40%. Implemented comprehensive HR systems for mid-sized organizations. Advised senior living facilities on IT infrastructure upgrades and cybersecurity best practices.</p>
+      <p>Led successful cloud migrations for construction firms, reducing infrastructure costs by 40%. Implemented comprehensive HR systems for mid-sized organizations. Advised senior living facilities and nonprofits on infrastructure strategy and technology optimization.</p>
     </div>
   </section>
 
@@ -470,11 +529,14 @@
       <div class="contact-link">
         <a href="https://ralphdejesus.com" target="_blank" rel="noopener noreferrer">ralphdejesus.com</a>
       </div>
+      <div class="contact-link">
+        <a href="resume.html" class="cta-resume">📄 View My Resume/CV</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Ralph DeJesus. All rights reserved. | Licensed Notary Public (KY)</p>
+    <p>&copy; 2026 Ralph DeJesus. All rights reserved. | Licensed Notary Public (NY & KY)</p>
   </footer>
 
   <script type="application/ld+json">
@@ -485,6 +547,8 @@
     "jobTitle": "IT Leadership & Consultant",
     "url": "https://ralphdejesus.com",
     "email": "rdj@ralphdejesus.com",
+    "telephone": "+16466702325",
+    "image": "https://ralphdejesus.com/assets/images/ralph-profile.png",
     "sameAs": [
       "https://linkedin.com/in/ralphdejesus",
       "https://facebook.com/ralphdejesus"
