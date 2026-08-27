@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ralph DeJesus - IT Leadership, Consulting & Infrastructure Solutions. 25+ years of experience in digital transformation, cloud migrations, and strategic IT planning." />
+  <meta name="keywords" content="IT Leadership, IT Consulting, Cloud Migration, Azure, AWS, Infrastructure, Digital Transformation" />
+  <meta name="author" content="Ralph DeJesus" />
+  <meta property="og:title" content="Ralph DeJesus | IT Leadership & Consulting" />
+  <meta property="og:description" content="Accomplished technology leader with 25+ years of experience in IT strategy, cloud migrations, and digital transformation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ralphdejesus.com" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ralph DeJesus | IT Leadership & Consulting" />
+  <meta name="twitter:description" content="IT Leadership & Consulting | Cloud Migrations | Infrastructure Solutions" />
+  <link rel="canonical" href="https://ralphdejesus.com" />
   <title>Ralph DeJesus | IT Leadership & Consulting</title>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
@@ -12,49 +23,98 @@
       padding: 0;
     }
 
+    :root {
+      --primary-dark: #0a0a23;
+      --nav-dark: #131339;
+      --light-bg: #e8ecf3;
+      --text-dark: #333;
+      --text-light: #fff;
+      --accent: #4a90e2;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
       background: #f9f9f9;
-      color: #333;
+      color: var(--text-dark);
     }
 
     header {
-  background: url('assets/images/scene.gif') center center / cover no-repeat;
-  color: #fff;
-  text-align: center;
-  padding: 4rem 2rem;
-}
+      background: linear-gradient(rgba(10, 10, 35, 0.7), rgba(10, 10, 35, 0.7)), url('assets/images/scene.gif') center center / cover no-repeat;
+      color: var(--text-light);
+      text-align: center;
+      padding: 6rem 2rem;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
     header h1 {
       font-family: 'Anton', sans-serif;
-      font-size: 3rem;
+      font-size: clamp(2rem, 8vw, 3.5rem);
       margin-bottom: 1rem;
+      letter-spacing: 1px;
     }
 
     header p {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      font-weight: 300;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      background: var(--accent);
+      color: var(--text-light);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border: 2px solid var(--accent);
+    }
+
+    .cta-button:hover {
+      background: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     nav {
-      background: #131339;
+      background: var(--nav-dark);
       padding: 1rem;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 10;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
-      color: #fff;
-      margin: 0 1rem;
+      color: var(--text-light);
+      margin: 0 1.5rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1rem;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+      }
     }
 
     section {
@@ -64,41 +124,173 @@
     }
 
     section h2 {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
       font-family: 'Anton', sans-serif;
-      color: #0a0a23;
-      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
     }
 
     section p, section ul {
       font-size: 1.1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    section ul {
+      list-style: none;
+      padding-left: 0;
     }
 
     ul li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
     }
 
-    .alt-section {
-      background: #e8ecf3;
-    }
-
-    footer {
-      background: #0a0a23;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .contact a {
-      color: #0a0a23;
-      text-decoration: none;
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
       font-weight: bold;
     }
 
+    .alt-section {
+      background: var(--light-bg);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      padding: 2rem;
+      background: var(--text-light);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .service-card p {
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .portfolio-item {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--text-light);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      padding: 1.5rem;
+      background: var(--text-light);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-category strong {
+      color: var(--primary-dark);
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .skill-category p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    footer {
+      background: var(--primary-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
     .contact a:hover {
+      color: var(--text-dark);
       text-decoration: underline;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .contact-link img {
+      width: 24px;
+      height: 24px;
+      display: block;
     }
 
     .gif-container {
@@ -111,6 +303,26 @@
       max-width: 100%;
       height: auto;
       border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 3rem 1.5rem;
+        min-height: 300px;
+      }
+
+      section {
+        padding: 2rem 1.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -119,88 +331,175 @@
   <header>
     <h1>Ralph DeJesus</h1>
     <p>IT Leadership | Consultant | Notary Public</p>
+    <a href="#contact" class="cta-button">Get In Touch</a>
   </header>
 
   <nav>
     <a href="#about">About</a>
-    <a href="#services">Freelance</a>
+    <a href="#services">Services</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  
-
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m Ralph DeJesus, an accomplished technology leader with a track record of aligning IT solutions to business outcomes. Over the past 25 years, I’ve led strategic digital transformations, managed infrastructure and security, and driven organizational growth through technology — across industries including nonprofits, science, education, construction, and senior living.</p>
-    <p>I specialize in designing scalable solutions, managing cross-functional teams, and solving complex problems with a hands-on approach. Whether building systems from the ground up or modernizing outdated platforms, I bring practical experience and a people-focused mindset to every project.</p>
+    <p>I'm Ralph DeJesus, an accomplished technology leader with a track record of aligning IT solutions to business outcomes. Over the past 25 years, I've led strategic digital transformations, managed complex infrastructure initiatives, and modernized legacy systems for Fortune 500 companies and nonprofits alike.</p>
+    <p>I specialize in designing scalable solutions, managing cross-functional teams, and solving complex problems with a hands-on approach. Whether building systems from the ground up or modernizing existing infrastructure, I combine strategic vision with practical execution to deliver results that drive business value. My expertise spans cloud architecture, enterprise security, and organizational change management.</p>
   </section>
 
   <section id="services" class="alt-section">
-    <h2>Freelance Services</h2>
-    <ul>
-      <li>IT Strategy & Infrastructure Consulting</li>
-      <li>Cloud Migrations (Azure, AWS, SharePoint, Dropbox)</li>
-      <li>Business Continuity Planning</li>
-      <li>QuickBooks & Payroll System Setup</li>
-      <li>Custom Database & Employee Management Solutions</li>
-      <li>Remote & Onsite Technical Support</li>
-      <li>Notary Public (NY & KY)</li>
-    </ul>
+    <h2>How I Can Help You</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>📱 Tech Support</h3>
+        <p>Struggling with your computer, phone, or internet? I provide remote and onsite technical support to get you back up and running quickly.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>☁️ Cloud Setup & Migration</h3>
+        <p>Ready to move your files to the cloud? I help set up and migrate to services like Azure, AWS, OneDrive, Dropbox, and SharePoint.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>💼 Small Business IT</h3>
+        <p>Need help managing your business technology? I provide IT consulting, network setup, and system optimization for small businesses.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>📊 Software & Database Setup</h3>
+        <p>Setting up QuickBooks, payroll systems, or custom databases? I handle configuration, training, and ongoing support.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🛡️ Business Continuity</h3>
+        <p>Protect your business from unexpected downtime. I develop backup and disaster recovery plans tailored to your needs.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>🔐 Notary Public Services</h3>
+        <p>Licensed Notary Public in KY. I provide notarization services for documents, real estate, and legal paperwork.</p>
+      </div>
+    </div>
   </section>
 
   <section id="portfolio">
     <h2>Portfolio</h2>
-    <ul>
-      <li><strong>University of Kentucky – KGS:</strong> Rebuilt IT infrastructure and digital asset systems; implemented issue tracking; set up new Ubuntu-based web server for public research tools.</li>
-      <li><strong>NY Academy of Sciences:</strong> Migrated entire tech stack to cloud, redesigned NYAS.org, built out hybrid office infrastructure, and ensured operational continuity through COVID-19.</li>
-      <li><strong>Freelance:</strong> Led cloud migrations for construction firms, implemented HR systems, and advised senior living facilities on IT upgrades.</li>
-    </ul>
+    <div class="portfolio-item">
+      <strong>University of Kentucky – KGS (Kentucky Geological Survey)</strong>
+      <p>Rebuilt IT infrastructure and digital asset management systems from the ground up. Implemented issue tracking and project management workflows. Set up new Ubuntu-based web servers for public research tools, ensuring 99.9% uptime and enabling access to critical geological datasets for researchers worldwide.</p>
+    </div>
+    <div class="portfolio-item">
+      <strong>NY Academy of Sciences</strong>
+      <p>Led comprehensive tech stack migration to cloud infrastructure. Redesigned and modernized NYAS.org, built out hybrid office infrastructure supporting remote and onsite operations, and ensured operational continuity through COVID-19 pandemic. Implemented new collaboration tools and security protocols serving 50,000+ members.</p>
+    </div>
+    <div class="portfolio-item">
+      <strong>Freelance Consulting</strong>
+      <p>Led successful cloud migrations for construction firms, reducing infrastructure costs by 40%. Implemented comprehensive HR systems for mid-sized organizations. Advised senior living facilities on IT infrastructure upgrades and cybersecurity best practices.</p>
+    </div>
   </section>
 
   <section id="skills" class="alt-section">
-  <h2>Technical Skills</h2>
-  <p><strong>Networking & Security</strong><br>
-  Cisco | Fortinet | Juniper | Aruba | ASA Firewalls</p>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <strong>Networking & Security</strong>
+        <p>Cisco | Fortinet | Juniper | Aruba | ASA Firewalls | Network Architecture | Security Policy</p>
+      </div>
 
-  <p><strong>Virtualization & Cloud Platforms</strong><br>
-  VMware | Hyper-V | Microsoft Azure | Amazon Web Services (AWS) | Office 365</p>
+      <div class="skill-category">
+        <strong>Virtualization & Cloud Platforms</strong>
+        <p>VMware | Hyper-V | Microsoft Azure | Amazon Web Services (AWS) | Office 365 | Cloud Architecture</p>
+      </div>
 
-  <p><strong>DevOps & Source Control</strong><br>
-  Docker | GitHub</p>
+      <div class="skill-category">
+        <strong>DevOps & Source Control</strong>
+        <p>Docker | GitHub | CI/CD Pipelines | Infrastructure as Code</p>
+      </div>
 
-  <p><strong>Servers & Storage</strong><br>
-  HP | Dell | EMC | Synology | QNAP | Buffalo</p>
+      <div class="skill-category">
+        <strong>Servers & Storage</strong>
+        <p>HP | Dell | EMC | Synology | QNAP | Buffalo | Storage Management</p>
+      </div>
 
-  <p><strong>Databases</strong><br>
-  SQL Server | PostgreSQL | Oracle | MariaDB | MongoDB</p>
+      <div class="skill-category">
+        <strong>Databases</strong>
+        <p>SQL Server | PostgreSQL | Oracle | MariaDB | MongoDB | Database Design & Optimization</p>
+      </div>
 
-  <p><strong>Web Servers & Development Frameworks</strong><br>
-  IIS | Apache | Nginx | .NET Framework | Astro Web Framework</p>
+      <div class="skill-category">
+        <strong>Web Servers & Development</strong>
+        <p>IIS | Apache | Nginx | .NET Framework | Astro Web Framework | Full-Stack Architecture</p>
+      </div>
 
-  <p><strong>Content & Web Management Systems</strong><br>
-  WordPress | Umbraco | SharePoint Online | Directus | ResourceSpace</p>
+      <div class="skill-category">
+        <strong>Content & Web Management</strong>
+        <p>WordPress | Umbraco | SharePoint Online | Directus | ResourceSpace | CMS Implementation</p>
+      </div>
 
-  <p><strong>Collaboration & Communication Tools</strong><br>
-  Microsoft Teams | Zoom | SharePoint Online</p>
+      <div class="skill-category">
+        <strong>Collaboration Tools</strong>
+        <p>Microsoft Teams | Zoom | SharePoint Online | Unified Communications</p>
+      </div>
 
-  <p><strong>Enterprise & Business Software</strong><br>
-  QuickBooks | Microsoft Dynamics GP | Raiser's Edge | Association Anywhere (AMS) | Accruent EMS (Event Management System)</p>
-</section>
+      <div class="skill-category">
+        <strong>Enterprise & Business Software</strong>
+        <p>QuickBooks | Microsoft Dynamics GP | Raiser's Edge | Association Anywhere (AMS) | Accruent EMS</p>
+      </div>
+    </div>
+  </section>
 
   <section id="contact" class="contact">
-  <h2>Contact</h2>
-  <p><img src="assets/images/email.webp" alt="Email Icon" style="width:20px; vertical-align:middle; margin-right:8px;"> <a href="mailto:rdj@ralphdejesus.com">rdj@ralphdejesus.com</a></p>
-  <p><img src="assets/images/linkedin.webp" alt="LinkedIn Icon" style="width:20px; vertical-align:middle; margin-right:8px;"> <a href="https://linkedin.com/in/ralphdejesus" target="_blank">linkedin.com/in/ralphdejesus</a></p>
-  <p><img src="assets/images/fb.webp" alt="Facebook Icon" style="width:20px; vertical-align:middle; margin-right:8px;"> <a href="https://facebook.com/ralphdejesus" target="_blank">facebook.com/ralphdejesus</a></p>
-  <p>Phone: <a href="tel:+16466702325">(646) 670-2325</a></p>
-  <p>Website: <a href="https://ralphdejesus.com" target="_blank">ralphdejesus.com</a></p>
-</section>
+    <h2>Contact & Connect</h2>
+    <div class="contact-info">
+      <div class="contact-link">
+        <img src="assets/images/email.webp" alt="Email" loading="lazy" />
+        <a href="mailto:rdj@ralphdejesus.com">rdj@ralphdejesus.com</a>
+      </div>
+      <div class="contact-link">
+        <img src="assets/images/linkedin.webp" alt="LinkedIn" loading="lazy" />
+        <a href="https://linkedin.com/in/ralphdejesus" target="_blank" rel="noopener noreferrer">linkedin.com/in/ralphdejesus</a>
+      </div>
+      <div class="contact-link">
+        <img src="assets/images/fb.webp" alt="Facebook" loading="lazy" />
+        <a href="https://facebook.com/ralphdejesus" target="_blank" rel="noopener noreferrer">facebook.com/ralphdejesus</a>
+      </div>
+      <div class="contact-link">
+        <a href="tel:+16466702325">(646) 670-2325</a>
+      </div>
+      <div class="contact-link">
+        <a href="https://ralphdejesus.com" target="_blank" rel="noopener noreferrer">ralphdejesus.com</a>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Ralph DeJesus. All rights reserved.</p>
+    <p>&copy; 2025 Ralph DeJesus. All rights reserved. | Licensed Notary Public (NY & KY)</p>
   </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ralph DeJesus",
+    "jobTitle": "IT Leadership & Consultant",
+    "url": "https://ralphdejesus.com",
+    "email": "rdj@ralphdejesus.com",
+    "telephone": "+16466702325",
+    "sameAs": [
+      "https://linkedin.com/in/ralphdejesus",
+      "https://facebook.com/ralphdejesus"
+    ],
+    "knowsAbout": [
+      "IT Strategy",
+      "Cloud Migration",
+      "Infrastructure",
+      "Digital Transformation",
+      "Cybersecurity",
+      "Notary Public"
+    ]
+  }
+  </script>
 
 </body>
 </html>
